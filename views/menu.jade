@@ -1,0 +1,56 @@
+.top-left-grid
+    .icon-dropdown
+        #dd2.wrapper-dropdown-3
+            i.dropdown-icon
+    .menu
+        a.toggleMenu(href="#")
+            span
+        ul.navi
+            li
+                a(href="/") Home
+            li
+                a(href="#") Catalog
+                ul
+                    li
+                        a(href="#") Catalog-1
+                    li
+                        a(href="#") Catalog-2
+                    li
+                        a(href="#") Catalog-3
+                    li
+                        a(href="#") Catalog-4
+                    li
+                        a(href="#") Catalog-5
+            li
+                a(href="#") Galary
+            li
+                a(href="#") Termin Vereinbarung
+            li
+                a(href="/contact") Contact
+            .clear
+        script(src="/javascripts/responsive-nav.js")
+    .top-search-box
+        input(type="text", value="Search the website", onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search the website';}")
+        input(type="submit", value="")
+    .clear
+    script(type='text/javascript').
+        function DropDown(el) {
+            this.dd = el;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents : function() {
+                var obj = this;
+                obj.dd.on('click', function(event){
+                    $(this).toggleClass('active');
+                    event.stopPropagation();
+                });
+            }
+        }
+        $(function() {
+            var dd = new DropDown( $('#dd2') );
+            $(document).click(function() {
+                // all dropdowns
+                $('.wrapper-dropdown-3').removeClass('active');
+            });
+        });
